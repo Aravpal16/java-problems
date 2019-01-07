@@ -1,0 +1,65 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main
+{
+	public static void main (String[] args)  throws java.lang.Exception
+	{
+		Scanner ip=new Scanner(System.in);
+		while(true)
+		{
+		    int n=ip.nextInt();
+		   
+		    if(n==0)
+		       break;
+		  
+		   Double r=Math.ceil(n/4.0);
+		   int s=r.intValue();
+		    int t=s*4;
+		    if(n==1)
+           {
+             System.out.println("Printing order for "+n+" pages:");
+             System.out.println("Sheet 1, front: Blank, 1");
+            
+              
+           }
+           else
+           {
+          
+               int lst = t;
+                 int fst = 1;
+                 System.out.println("Printing order for "+n+" pages:");
+
+                 for(int i=1;i<=s;i++)
+                {
+                     System.out.print("Sheet "+i+", front: ");
+
+                   if(lst > n)
+                   System.out.print("Blank,"+" ");
+                  else
+                     System.out.print(lst+", ");
+  
+                   System.out.println(fst);
+
+                    lst--;
+                     fst++;
+
+                     System.out.print("Sheet "+i+", back : ");
+ 
+                   System.out.print(fst);
+
+                     if(lst > n)
+                     System.out.println(", "+"Blank");
+                      else
+                      System.out.println(", "+lst);
+
+                      lst--;
+                       fst++;
+                  }
+           
+              }
+		}  
+		
+	}
+}

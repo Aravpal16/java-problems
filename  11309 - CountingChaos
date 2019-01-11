@@ -1,0 +1,133 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+   	public static  long reverse(long x)
+	{
+	    long y=0;
+	
+     	while (x>0)
+	  {
+	    	y *= 10;
+		    y+= x % 10;
+		    x /= 10;
+      }
+	
+	   return y;
+	}
+	public static void main (String[] args) throws java.lang.Exception
+	{
+	    Scanner ip=new Scanner(System.in);
+	    int t=ip.nextInt();
+	    while(t-->0)
+	    {
+	        String str=ip.next();
+	        String []a=str.split(":");
+	        int h=Integer.parseInt(a[0]);
+	        int m=Integer.parseInt(a[1]);
+	        int n=(h*100+m)+1;
+	        long rn = reverse(n);
+		    long p=rn;
+	   
+	          	while (rn != n)
+		      {
+		          if(n==2400)
+		              n=0;
+		         else if(n%100==60)
+		              n=n+40;
+		          else
+		             n=n+1;
+		              
+		              
+		         	rn = reverse(n);
+		         	
+		         	if(n==rn)
+		         	 {
+		import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main
+{
+   	public static  long reverse(long x)
+	{
+	    long y=0;
+	
+     	while (x>0)
+	  {
+	    	y *= 10;
+		    y+= x % 10;
+		    x /= 10;
+      }
+	
+	   return y;
+	}
+	public static void main (String[] args) throws java.lang.Exception
+	{
+	    Scanner ip=new Scanner(System.in);
+	    int t=ip.nextInt();
+	    while(t-->0)
+	    {
+	        String str=ip.next();
+	        String []a=str.split(":");
+	        int h=Integer.parseInt(a[0]);
+	        int m=Integer.parseInt(a[1]);
+	        int n=(h*100+m)+1;
+	        long rn = reverse(n);
+		    long p=rn;
+	   
+	          	while (rn != n)
+		      {
+		          if(n==2400)
+		              n=0;
+		         else if(n%100==60)
+		              n=n+40;
+		          else
+		             n=n+1;
+		              
+		              
+		         	rn = reverse(n);
+		         	
+		         	if(n==rn)
+		         	 {
+		         	     p=rn;
+		         	     break;
+		         	 }
+			         
+	         }
+	         if(p>=0&&p<=1000)
+	         {
+	             if((p%100)<10)
+	             System.out.println("0"+(p/100)+":"+"0"+(p%100));
+	             else
+	             System.out.println("0"+(p/100)+":"+(p%100));
+	         }
+	         
+	         else
+	         {
+	             
+	             if((p%100)<10)
+	             System.out.println((p/100)+":"+"0"+(p%100));
+	             else
+	             System.out.println((p/100)+":"+(p%100));
+	         }
+	    }
+	}
+	
+}
+         	     p=rn;
+		         	     break;
+		         	 }
+			         
+	         }
+	         if(p>=0&&p<=1000)
+	         System.out.println("0"+(p/100)+":"+"0"+(p%100));
+	         else
+	         System.out.println((p/100)+":"+(p%100));
+	    }
+	}
+	
+}
+

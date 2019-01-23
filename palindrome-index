@@ -1,0 +1,32 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+
+class Codechef
+{
+    public static void main (String[] args) throws java.lang.Exception
+    {
+        Scanner ip=new Scanner (System.in);
+        int t=ip.nextInt();
+        for(int i=0;i<t;i++)
+        {
+            String str=ip.next();
+            int s=0,len=str.length();
+            int j=0,l=len-1,f=-1;
+            char[] a = str.toCharArray();
+            while(j<l)
+            {
+                if(a[j]!=a[l])
+                {
+                    f=a[j+1]==a[l]&&a[j+2]==a[l-1]?j:l;
+                    break;
+                }
+                j++;
+                l--;
+            }
+            System.out.println(f);
+        }
+    }
+}
+

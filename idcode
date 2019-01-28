@@ -1,0 +1,64 @@
+
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+	   Scanner ip=new Scanner(System.in);
+	   while(ip.hasNext())
+	   {
+	       String s=ip.next();
+	       if(s.equals("#"))
+	            break;
+	       
+	       int l=s.length();
+	       List<Integer> a = new ArrayList<Integer>();
+	       for(int i=0;i<l;i++)
+	       {
+	           a.add(s.charAt(i) - 'a');
+	       }
+	       int f=0,f1=0;
+	       for(int i=a.size()-2;i>=0;i--)
+	       {
+	            int x=a.get(i);
+	            int y=a.get(i+1);
+	            if(x<y)
+	            {
+	                for(int j=a.size()-1;j>=0;j--)
+	                  {
+	                       int p=a.get(j);
+	                       int q=a.get(i);
+	                      if(p>q)
+	                      {
+	                          Collections.swap(a, j, i);
+	                           Collections.sort(a.subList(i+1, l));
+	                           f=1;
+	                           break;
+	                      }
+	                      
+	                   }
+	                 
+	                  
+	                  
+	             }
+	             if(f==1)
+	               break;
+	       }
+	       if(f!=1)
+	       System.out.print("No Successor");
+	       else
+	       {
+	           for(Integer b:a)
+	           {
+	               System.out.print((char) (b + 'a'));
+	           }
+	       }
+	       System.out.println();
+	   }
+	}
+}
+

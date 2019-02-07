@@ -1,0 +1,44 @@
+
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+
+class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+	     Scanner ip=new Scanner(System.in);
+	     while (ip.hasNext())
+	     {
+            int n = ip.nextInt();
+             if(n==0)
+               break;
+               
+            TreeSet<Integer> set = new TreeSet<Integer>();
+            int[] arr = new int[1000001];
+            long total = 0;
+            for (int i = 0; i < n; i++) {
+                int M = ip.nextInt();
+                for (int j = 0; j < M; j++) {
+                    int x = ip.nextInt();
+                    arr[x]++;
+                    set.add(x);
+                }
+                int a = set.first();
+                int b = set.last();
+                total += b - a;
+                arr[a]--;
+                arr[b]--;
+                if (arr[a] == 0) {
+                    set.remove(a);
+                }
+                if (arr[b] == 0) {
+                    set.remove(b);
+                }
+            }
+            System.out.println(total);
+        }
+	}
+}

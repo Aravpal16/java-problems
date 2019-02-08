@@ -1,0 +1,70 @@
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner ip=new Scanner(System.in);
+		while(ip.hasNext())
+		{
+		    int n=ip.nextInt();
+		    Queue<Integer> queue = new LinkedList<Integer>();
+           PriorityQueue<Integer> priority = new PriorityQueue<Integer>(Collections.reverseOrder());
+           Stack<Integer> stack = new Stack<Integer>();
+           boolean s=true;
+           boolean q=true;
+           boolean pq=true;
+		    while(n-->0)
+		    {
+		        int a=ip.nextInt();
+		        int b=ip.nextInt();
+		        
+		           if (a == 1)
+		           {
+                    stack.push(b);
+                    queue.add(b);
+                    priority.add(b);
+                   } 
+                   else
+                   {
+                    if (s)
+                    {
+                        if (stack.isEmpty()||stack.pop() != b)
+                        {
+                            s = false;
+                        } 
+                    }
+                    if (q)
+                    {
+                        if (queue.isEmpty()||queue.poll() != b) 
+                        {
+                            q = false;
+                        } 
+                    }
+                    if (pq)
+                    {
+                        if (priority.isEmpty()||priority.poll() != b)
+                        {
+                            pq = false;
+                        } 
+                    }
+                   }
+		        
+		    }
+		     if (!q && !s && !pq)
+		     System.out.println("impossible");
+		      else if (q && !s &&!pq)
+		        System.out.println("queue");
+		       else if (s && !q && !pq)
+		         System.out.println("stack");
+		        else if (!s && !q && pq)
+		          System.out.println("priority queue");
+		         else
+		         System.out.println("not sure");
+		}
+		
+	}
+}

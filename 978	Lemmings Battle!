@@ -1,0 +1,143 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+
+class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+	     Scanner ip=new Scanner(System.in);
+	     int t=ip.nextInt();
+	     
+	     while (t-->0)
+	     {
+	         
+	           
+            int bu = ip.nextInt();
+             int sg=ip.nextInt();
+             int sb=ip.nextInt();  
+             int c1=0,c2=0;
+            TreeSet<Integer> green= new TreeSet<Integer>();
+            TreeSet<Integer> blue = new TreeSet<Integer>();
+            
+            int[] greencount = new int[1000001];
+            int[] bluecount = new int[1000001];
+
+                for (int j = 0; j < sg; j++)
+                {
+                
+                
+                      int x = ip.nextInt();
+                     greencount[x]++;
+                      green.add(x);
+                     
+                }
+                 for(int j=0;j<sb;j++)
+                 {
+                        int x=ip.nextInt();
+                        bluecount[x]++;
+                        blue.add(x);
+                        
+                 }
+                
+               
+            
+             insert(green,blue,greencount,bluecount,bu,sg,sb);
+             print(green,blue,greencount,bluecount);
+             if(t>0)
+               System.out.println();
+             green.clear();
+             blue.clear();
+           }
+    	}
+	public static void print (TreeSet<Integer> green,TreeSet<Integer> blue, int[] greencount,int[] bluecount )
+	{
+	    if(green.isEmpty()==true&&blue.isEmpty()==true)
+	     {
+	         System.out.println("green and blue died");
+	     }
+	    else if(green.isEmpty()==false)
+	     {
+	         System.out.println("green wins");
+	         TreeSet<Integer> t2 = (TreeSet<Integer>)green.descendingSet();
+           for (Integer i : t2)  
+            {  
+                int v=i;
+                int c=greencount[v];
+                
+                for(int j=0;j<c;j++)
+                  {
+                      System.out.println(v);
+                  }
+            }  
+	     }
+	     else if(blue.isEmpty()==false)
+	     {
+              System.out.println("blue wins");
+                TreeSet<Integer> t1 = (TreeSet<Integer>)blue.descendingSet(); 
+  
+
+            for (Integer i : t1) 
+            {  
+                int c=bluecount[i];
+                
+                for(int j=0;j<c;j++)
+                  {
+                      System.out.println(i);
+                  }
+            }  
+	     }
+	}
+		public static void insert (TreeSet<Integer> green,TreeSet<Integer> blue, int[] greencount,int[] bluecount,int bu,int sg,int sb )
+		{
+		    
+		    
+		    while(!green.isEmpty()&&!blue.isEmpty())
+                {
+                    ArrayList<Integer>g1=new ArrayList<Integer>();
+                     ArrayList<Integer>b1=new ArrayList<Integer>();
+                     int mi=Math.min(bu,Math.min(sg,sb));
+                  for(int i=0;i<mi;i++)
+                   {   int a = green.last();
+                        int b = blue.last();
+                        if(a>b)
+                         {
+                            g1.add(a-b);
+                            
+                          }
+                        else if(b>a)
+                         {
+                              b1.add(b-a);
+                         }
+                        greencount[a]--;
+                         bluecount[b]--;
+                        sg=sg-1;
+                        sb=sb-1;
+                       if (greencount[a] == 0)
+                          {
+                           green.remove(a);
+                            }
+                        if (bluecount[b] == 0)
+                        {
+                         blue.remove(b);
+                         }
+                   }
+                   for(Integer k:g1)
+                   {
+                        greencount[k]++;
+                        green.add(k);
+                        sg=sg+1;
+                   }
+                   for(Integer l:b1)
+                   {
+                         bluecount[l]++;
+                        blue.add(l);
+                          sb=sb+1;
+                   }
+                  
+            
+                }
+                
+		}
+}

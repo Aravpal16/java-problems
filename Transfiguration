@@ -1,0 +1,57 @@
+import java.util.*;
+class GfG
+{
+    public static void main(String args[])throws IOException
+        {
+            BufferedReader br = new BufferedReader( new InputStreamReader(System.in));
+            int t = Integer.parseInt(br.readLine());
+            while(t-->0)
+                {
+                    String arr[] = br.readLine().split(" ");
+                    String A = arr[0];
+                    String B = arr[1];
+                    Solution obj = new Solution();
+                    System.out.println(obj.transfigure (A, B));
+                }
+        }
+}// } Driver Code Ends
+
+
+//User function Template for Java
+
+class Solution
+{
+    int transfigure (String A, String B)
+    {
+    	char[] str1 = A.toCharArray();
+    	char[] str2 = B.toCharArray();
+    	char[] s1 = A.toCharArray();
+    	char[] s2 = B.toCharArray();
+    	Arrays.sort(s1);
+    	Arrays.sort(s2);
+    	int c=0;
+    	if(Arrays.equals(s1,s2)==true)
+    	{
+    	    for(int i=str1.length-1,j=str2.length-1;i>=0;)
+    	    {
+    	        if(str1[i]==str2[j])
+    	        {
+    	            i--;
+    	            j--;
+    	        }
+    	       else{
+    	              i--;
+    	              c++;
+    	           }
+    	        
+    	    }
+    	    
+    	}
+    	else{
+    	    c=-1;
+    	}
+    
+    
+    return c;
+    }
+}

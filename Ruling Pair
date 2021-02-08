@@ -1,0 +1,53 @@
+mport java.io.*;
+import java.util.*; 
+class GFG{
+    public static void main(String args[]) throws IOException { 
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+
+        while(t > 0){
+        	int n = sc.nextInt();
+        	int array[] = new int[n];
+        	for (int i=0; i<n ; i++ ) {
+        		array[i] = sc.nextInt();
+        	}
+            Solution ob = new Solution();
+            System.out.println(ob.RulingPair(array,n));
+            t--;
+        }
+    } 
+} 
+      // } Driver Code Ends
+
+
+//User function Template for Java
+
+class Solution { 
+	static int RulingPair(int arr[], int n) { 
+        // Your code goes here
+        HashMap<Integer,Integer> pairs=new HashMap<>();
+        int sum=-1;
+        for(int nu:arr)
+        {
+            int d=0;
+            int num=nu;
+            while(nu>0){
+                d+=(nu%10);
+                nu=nu/10;
+            }
+            if(pairs.containsKey(d))
+            {
+                int c=pairs.get(d);
+                sum=Math.max(sum,c+num);
+                if(num>c)
+                pairs.put(d,num);
+            }
+            else
+            {
+                pairs.put(d,num);
+            }
+        }
+        return sum;
+	}    
+	
+} 
